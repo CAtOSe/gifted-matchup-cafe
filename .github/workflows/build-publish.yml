@@ -5,9 +5,14 @@ on:
   pull_request:
     branches:
     - main
+
+permissions:
+  contents: write
+  pages: write
+
 jobs:
   build:
-    name: Building Matchup Cafe app
+    name: Build Matchup Cafe app
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -33,8 +38,12 @@ jobs:
           token: ${{ github.token }}
           # Try to enable Pages for the repository if it is not already enabled. This option requires a token other than `GITHUB_TOKEN` to be provided. In the context of a Personal Access Token, the `repo` scope or Pages write permission is required. In the context of a GitHub App, the `administration:write` and `pages:write` permissions are required.
           enablement: true
-
-      - name: Deploy
+  deploy:
+    name: Deploy Matchup Cafe app
+    needs: [build]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ github.token }}
