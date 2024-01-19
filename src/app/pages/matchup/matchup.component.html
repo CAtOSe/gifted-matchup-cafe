@@ -1,0 +1,33 @@
+<h2>Naujausias Matchup</h2>
+<div class="matchup__action-bar">
+  <button mat-raised-button color="primary" (click)="generate()">
+    Generuoti
+  </button>
+  <button
+    mat-raised-button
+    color="primary"
+    (click)="confirm()"
+    *ngIf="newMatchup && !loading"
+  >
+    Tvirtinti
+  </button>
+  <button
+    mat-raised-button
+    color="warn"
+    (click)="cancel()"
+    *ngIf="newMatchup && !loading"
+  >
+    Atšaukti
+  </button>
+</div>
+<div *ngIf="currentMatchup && !loading">
+  <h4>Matchup sąrašas nr. {{ currentMatchup.id }}</h4>
+  <p>Generavimo data: {{ formattedDate }}d.</p>
+  <app-matchup-table
+    [matchupData]="currentMatchup.matchups"
+  ></app-matchup-table>
+</div>
+<p *ngIf="!currentMatchup && !loading">
+  Sugeneruokite bent vieną matchup sąrašą
+</p>
+<div *ngIf="loading"><app-loader></app-loader></div>

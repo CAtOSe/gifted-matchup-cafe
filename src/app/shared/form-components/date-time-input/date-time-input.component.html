@@ -1,0 +1,21 @@
+<mat-form-field appearance="outline" color="accent" class="field">
+  <mat-label>{{ label }}</mat-label>
+  <input
+    matInput
+    [matDatepicker]="dp"
+    [placeholder]="placeholder"
+    [formControl]="formControl"
+    [min]="allowPastDates ? null : currentDate"
+  />
+  <mat-hint *ngIf="hint && !(formControl.errors && formControl.touched)">
+    {{ hint }}
+  </mat-hint>
+  <mat-hint
+    *ngIf="formControl.errors && formControl.touched"
+    [class.field__error]="formControl.errors"
+  >
+    {{ getFormattedError() }}
+  </mat-hint>
+  <mat-datepicker-toggle matIconSuffix [for]="dp"></mat-datepicker-toggle>
+  <mat-datepicker #dp></mat-datepicker>
+</mat-form-field>

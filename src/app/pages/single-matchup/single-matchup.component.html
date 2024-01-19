@@ -1,0 +1,9 @@
+<ng-container *ngIf="currentMatchup">
+  <h2>Matchup sąrašas nr. {{ currentMatchup.id }}</h2>
+  <div>
+    <p>Generavimo data: {{ formattedDate }}d.</p>
+    <app-matchup-table
+      [matchupData]="currentMatchup.matchups"
+    ></app-matchup-table>
+  </div>
+</ng-container>

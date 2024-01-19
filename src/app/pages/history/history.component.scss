@@ -1,0 +1,26 @@
+.matchups {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  &__item {
+    display: flex;
+    flex-direction: row;
+    background: #333333;
+    border-radius: 4px;
+    padding: 16px 32px;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__title {
+    font-size: 1.15rem;
+    margin: 0;
+  }
+
+  &__buttons {
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+  }
+}

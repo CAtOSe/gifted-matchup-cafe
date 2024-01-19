@@ -1,0 +1,26 @@
+@use "sass:map";
+@use "sass:color";
+@use 'common/colors';
+
+.link {
+  &--active {
+    background: color.scale(map.get(colors.$blue-primary-palette, 500), $alpha: -60%);
+  }
+}
+
+.heading {
+  margin-left: 8px;
+  color: #ddd;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+
+  &::after {
+    content: '';
+    display: block;
+    flex: 1;
+    height: 1px;
+    background: #ddd;
+  }
+}

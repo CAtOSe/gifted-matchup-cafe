@@ -1,0 +1,31 @@
+<div class="dialog" *ngIf="showDialog && dialogData">
+  <div class="dialog__box">
+    <h4 class="dialog__title">{{ dialogData.title }}</h4>
+    <p class="dialog__message">{{ dialogData.message }}</p>
+
+    <!-- Dropdown menu for user role selection -->
+    <div *ngIf="dialogData.type === DialogType.UserRoleSelect">
+      <select id="userRole" [(ngModel)]="selectedUserRole">
+        <option value="Vartotojas">Vartotojas</option>
+        <option value="Kūrėjas">Organizatorius</option>
+        <option value="Administratorius">Administratorius</option>
+      </select>
+    </div>
+
+    <div class="dialog__actions">
+      <button mat-raised-button (click)="dismiss()">
+        {{ dialogData.type === DialogType.Information ? "Gerai" : "Atšaukti" }}
+      </button>
+      <button
+        mat-raised-button
+        [color]="
+          dialogData.type === DialogType.DeleteConfirm ? 'warn' : 'primary'
+        "
+        *ngIf="dialogData.type !== DialogType.Information"
+        (click)="confirm()"
+      >
+        Patvirtinti
+      </button>
+    </div>
+  </div>
+</div>

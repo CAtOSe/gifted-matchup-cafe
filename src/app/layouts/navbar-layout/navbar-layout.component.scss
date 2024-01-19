@@ -1,0 +1,23 @@
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.layout-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+
+  &__drawer-container {
+    flex: 1;
+  }
+
+  &__content {
+    padding: 32px 24px;
+  }
+
+  &__sidenav {
+    min-width: 200px;
+  }
+}

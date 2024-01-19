@@ -1,0 +1,7 @@
+@use "common/action-bar";
+
+.matchup {
+  &__action-bar {
+    @include action-bar.action-bar;
+  }
+}

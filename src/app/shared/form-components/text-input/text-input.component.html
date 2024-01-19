@@ -1,0 +1,19 @@
+<mat-form-field [appearance]="appearance" [color]="'accent'" class="field">
+  <mat-label>{{ label }}</mat-label>
+  <input
+    matInput
+    [type]="type"
+    [placeholder]="placeholder"
+    [formControl]="formControl"
+    [readonly]="readonly"
+  />
+  <mat-hint *ngIf="hint && !(formControl.errors && formControl.touched)">
+    {{ hint }}
+  </mat-hint>
+  <mat-hint
+    *ngIf="formControl.errors && formControl.touched"
+    [class.field__error]="formControl.errors"
+  >
+    {{ getFormattedError() }}
+  </mat-hint>
+</mat-form-field>

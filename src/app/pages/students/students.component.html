@@ -1,0 +1,35 @@
+<h2>Studentai</h2>
+<form
+  class="students__action-bar"
+  *ngIf="uploadForm && !loading"
+  #studentFileInput
+  [formGroup]="uploadForm"
+  (ngSubmit)="upload()"
+>
+  <div>
+    <input
+      type="file"
+      (change)="selectFile($event)"
+      accept="application/vnd.ms-excel, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+    />
+  </div>
+  <button mat-raised-button color="primary">Įkelti</button>
+</form>
+<p class="students__format-notice">
+  Sistema gali priimti tik Excel failus, kuriuose pirmame stulpelyje įrašyti
+  studentų vardai be antraštės.
+</p>
+<div *ngIf="students">
+  <p>Studentų skaičius: {{ students.length }}</p>
+  <table mat-table [dataSource]="students">
+    <ng-container matColumnDef="fullName">
+      <th mat-header-cell *matHeaderCellDef>Vardas, pavardė</th>
+      <td mat-cell *matCellDef="let element">{{ element.fullName }}</td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
+    <tr mat-row *matRowDef="let myRowData; columns: columnsToDisplay"></tr>
+  </table>
+</div>
+<p *ngIf="!students && !loading">Įkelkite studentų sąrašą</p>
+<div *ngIf="loading"><app-loader></app-loader></div>

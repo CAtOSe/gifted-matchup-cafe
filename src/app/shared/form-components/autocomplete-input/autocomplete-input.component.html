@@ -1,0 +1,25 @@
+<mat-form-field [appearance]="appearance" [color]="'accent'" class="field">
+  <mat-label>{{ label }}</mat-label>
+  <input
+    type="text"
+    matInput
+    [formControl]="formControl"
+    [matAutocomplete]="auto"
+  />
+  <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
+    <mat-option
+      [value]="option"
+      *ngFor="let option of filteredOptions | async"
+      >{{ option.display }}</mat-option
+    >
+  </mat-autocomplete>
+  <mat-hint *ngIf="hint && !(formControl.errors && formControl.touched)">
+    {{ hint }}
+  </mat-hint>
+  <mat-hint
+    *ngIf="formControl.errors && formControl.touched"
+    [class.field__error]="formControl.errors"
+  >
+    {{ getFormattedError() }}
+  </mat-hint>
+</mat-form-field>

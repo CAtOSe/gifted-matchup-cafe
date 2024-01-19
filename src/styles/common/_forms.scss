@@ -1,0 +1,25 @@
+@use "common/colors";
+
+@mixin form-field {
+  width: 100%;
+
+  &__error {
+    color: colors.$color-red;
+  }
+}
+
+@mixin form-container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+@mixin form-row {
+  display: flex;
+  flex-direction: row;
+  gap: 32px
+}
+
+@mixin form-row-heading {
+  margin: 0;
+}

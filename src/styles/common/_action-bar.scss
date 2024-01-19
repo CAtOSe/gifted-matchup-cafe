@@ -1,0 +1,6 @@
+@mixin action-bar {
+  display: flex;
+  gap: 16px;
+  flex-direction: row;
+  margin-bottom: 32px;
+}

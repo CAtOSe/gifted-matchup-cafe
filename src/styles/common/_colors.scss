@@ -1,0 +1,72 @@
+@use "sass:map";
+@use 'sass:color';
+
+$blue-primary: #226CE0;
+$blue-primary-palette: (
+  50: color.mix($blue-primary, #ffffff, 7%),
+  100: color.mix($blue-primary, #ffffff, 12%),
+  200: color.mix($blue-primary, #ffffff, 24%),
+  300: color.mix($blue-primary, #ffffff, 38%),
+  400: color.mix($blue-primary, #ffffff, 48%),
+  500: $blue-primary,
+  600: color.mix($blue-primary, #000000, 13%),
+  700: color.mix($blue-primary, #000000, 20%),
+  800: color.mix($blue-primary, #000000, 28%),
+  900: color.mix($blue-primary, #000000, 54%),
+  A100: lighten($blue-primary, 40%),
+  A200: lighten($blue-primary, 30%),
+  A400: lighten($blue-primary, 20%),
+  A700: lighten($blue-primary, 10%),
+  contrast: (
+    50: #000,
+    100: #000,
+    200: #000,
+    300: #000,
+    400: #000,
+    500: #fff,
+    600: #fff,
+    700: #fff,
+    800: #fff,
+    900: #fff,
+    A100: #000,
+    A200: #000,
+    A400: #000,
+    A700: #000,
+  )
+);
+
+$yellow-accent: #F6F740;
+$yellow-accent-palette: (
+  50: color.mix($yellow-accent, #ffffff, 7%),
+  100: color.mix($yellow-accent, #ffffff, 12%),
+  200: color.mix($yellow-accent, #ffffff, 24%),
+  300: color.mix($yellow-accent, #ffffff, 38%),
+  400: color.mix($yellow-accent, #ffffff, 48%),
+  500: $yellow-accent,
+  600: color.mix($yellow-accent, #000000, 13%),
+  700: color.mix($yellow-accent, #000000, 20%),
+  800: color.mix($yellow-accent, #000000, 28%),
+  900: color.mix($yellow-accent, #000000, 54%),
+  A100: darken($yellow-accent, 10%),
+  A200: $yellow-accent,
+  A400: lighten($yellow-accent, 20%),
+  A700: lighten($yellow-accent, 10%),
+  contrast: (
+    50: #000,
+    100: #000,
+    200: #000,
+    300: #000,
+    400: #000,
+    500: #000,
+    600: #000,
+    700: #000,
+    800: #fff,
+    900: #fff,
+    A100: #000,
+    A200: #000,
+    A400: #000,
+    A700: #000,
+  )
+);
+
+$color-red: #f44336;

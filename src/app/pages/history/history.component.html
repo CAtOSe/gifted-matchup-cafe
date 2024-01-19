@@ -1,0 +1,21 @@
+<h2>Istorija</h2>
+<div class="matchups" *ngIf="!loading && matchups">
+  <div class="matchups__item" *ngFor="let matchup of matchups">
+    <p class="matchups__title">Matchup Nr. {{ matchup.id }}</p>
+    <div class="matchups__buttons">
+      <button
+        mat-raised-button
+        color="primary"
+        [routerLink]="'/matchup/' + matchup.id"
+      >
+        Peržiūrėti
+      </button>
+      <button mat-raised-button color="warn" (click)="delete(matchup.id)">
+        Pašalinti
+      </button>
+    </div>
+  </div>
+</div>
+<div *ngIf="loading">
+  <app-loader></app-loader>
+</div>

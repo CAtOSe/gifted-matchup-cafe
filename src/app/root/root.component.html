@@ -1,0 +1,12 @@
+<ng-container [ngSwitch]="currentLayout">
+  <app-navbar-layout *ngSwitchCase="Layout.Navbar">
+    <router-outlet></router-outlet>
+  </app-navbar-layout>
+  <app-navbar-card-layout *ngSwitchCase="Layout.NavbarCard">
+    <router-outlet></router-outlet>
+  </app-navbar-card-layout>
+  <app-entry *ngSwitchCase="Layout.Entry">
+    <router-outlet></router-outlet>
+  </app-entry>
+</ng-container>
+<app-dialog></app-dialog>
