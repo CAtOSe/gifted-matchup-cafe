@@ -1,0 +1,43 @@
+on:
+  push:
+    branches:
+    - main
+  pull_request:
+    branches:
+    - main
+jobs:
+  build:
+    name: Building Matchup Cafe app
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      # Setup .npmrc file to publish to npm
+      
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20.x'
+          registry-url: 'https://registry.npmjs.org'
+      
+      - name: Install packages
+        run: npm ci
+        
+      - name: Build Application
+        run: npm run build
+
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@v4.0.0
+        with:
+          # GitHub token
+          token: ${{ github.token }}
+          # Try to enable Pages for the repository if it is not already enabled. This option requires a token other than `GITHUB_TOKEN` to be provided. In the context of a Personal Access Token, the `repo` scope or Pages write permission is required. In the context of a GitHub App, the `administration:write` and `pages:write` permissions are required.
+          enablement: true
+
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ github.token }}
+          publish_dir: ./dist/matchup-cafe
+          
+          
