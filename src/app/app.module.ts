@@ -40,6 +40,7 @@ import { LoaderComponent } from './shared/loader/loader.component';
 import { SingleMatchupComponent } from './pages/single-matchup/single-matchup.component';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { DATE_PIPE_DEFAULT_OPTIONS } from '@angular/common';
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
   declarations: [
@@ -84,6 +85,7 @@ import { DATE_PIPE_DEFAULT_OPTIONS } from '@angular/common';
     MatAutocompleteModule,
     MatTableModule,
     MatProgressSpinnerModule,
+    MatIconModule,
   ],
   providers: [
     { provide: MAT_DATE_LOCALE, useValue: lt },

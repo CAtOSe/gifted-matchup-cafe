@@ -1,6 +1,15 @@
 @use 'common/colors';
+@use "common/responsive";
 
 /* You can add global styles to this file, and also import other style files */
 
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+html {
+  --breakpoint-small:  #{responsive.$breakpoint-small};
+  --breakpoint-medium: #{responsive.$breakpoint-medium};
+}
